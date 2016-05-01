@@ -1,0 +1,77 @@
+@import "bower_components/bootstrap/less/bootstrap.less";
+//@import "bower_components/bootstrap/less/theme.less";
+@import "bower_components/font-awesome/less/font-awesome.less";
+@fa-font-path: "bower_components/font-awesome/fonts";
+
+/* Component LESS */
+@import "partial/todo/todo.less";
+@import "directive/createNew/createNew.less";
+/* Add Component LESS Above */
+
+/* Required for Angular UI Bootstrap */
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/* Personal preference for BS modal.  The LESS below makes the backdrop white and
+   causes the modal to fade in rather than slide in. */
+//@modal-backdrop-bg: white;
+//.modal {
+//	&.fade {
+//		.transition(opacity .3s);
+//	}
+//	&.fade .modal-dialog {
+//		.translate(0,0);
+//	}
+//}
+.visual-tag{
+    display: inline-block;
+    border: 0.5px solid #a7a7a7;
+    color: #a7a7a7;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+.visual-tag p{
+    color: #a7a7a7;
+}
+nav{
+    height: 150px;
+}
+.input-field{
+    margin-top: 50px;
+    color: #fff;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+    color: #fff;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+}
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #fff;
+    font-size: 1.5em;
+}
+.input-field label{
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.right-align{
+    float: right;
+}
+.editable-click{
+    color: #000;
+    font-style: normal;
+}

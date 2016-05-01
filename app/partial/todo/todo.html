@@ -1,0 +1,43 @@
+<div class="todo-partial">
+    <div class="container">
+        <div class="row">
+            <div class="switch col s12 m6 offset-m3 filter-directive left-align">
+                <div class="input-field col s6">
+                    <input placeholder="Search for todos" id="todo" ng-model="q" type="text" class="validate">
+                </div>
+                <br />
+                <div class="right-align">
+                    <label class="filter-text">
+                        To Do
+                        <input type="checkbox" ng-click="changeSwitch()">
+                        <span class="lever"></span>
+                        Completed
+                    </label>
+                </div>
+                <br />
+                <br />
+            </div>
+            <div class="col s12 m6 offset-m3">
+                <div ng-repeat="item in todos | filter:q ">
+                    <div class="card white" ng-if="item.completed == switch">
+                        <div class="card-content black-text">
+                            <span class="card-title" editable-text="item.todo" onbeforesave="updateTodoLabel(item._id, $data)">{{item.todo || "empty" }}</span>
+                            <div class="time">
+                                created on: {{item.created| date:medium}}
+                            </div>
+                            <br />
+                            <!--<div class="visual-tag"><p></p></div>-->
+                        </div>
+                        <div class="card-action">
+                            <p>
+                                <a class="waves-effect gray btn-flat black-text" ng-click="updateTodoCompleted(item._id)" ng-if="item.completed == false">Done</a>
+                                <a class="waves-effect gray btn-flat black-text" ng-click="updateTodoCompletedReopen(item._id)" ng-if="item.completed == true">Reopen</a>
+                                <a class="waves-effect waves-gray btn-flat black-text right-align" ng-click="onDeleteClick(item._id)">Delete</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
