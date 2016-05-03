@@ -6,6 +6,20 @@ angular.module('todo').controller('TodoCtrl',function($scope, todoService, $stat
     $scope.todos = todoService.model.list;
 
     $scope.switch = false;
+    $scope.orderUsing = {
+        order : false,
+        label : 'Showing newest first'
+    };
+
+    $scope.switchOrder = function () {
+        if ($scope.orderUsing.order == false){
+            $scope.orderUsing.order = true
+            $scope.orderUsing.label = 'Showing oldest first'
+        } else {
+            $scope.orderUsing.order = false
+            $scope.orderUsing.label = 'Showing newest first'
+        }
+    }
 
     $scope.createTodo = function(){
         // execute create function in articleService and pass the article data to it

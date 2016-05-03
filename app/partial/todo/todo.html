@@ -1,11 +1,16 @@
 <div class="todo-partial">
     <div class="container">
         <div class="row">
-            <div class="switch col s12 m6 offset-m3 filter-directive left-align">
-                <div class="input-field col s6">
+            <div class="switch col s12 m6 offset-m3 filter-directive">
+                <div class="input-field col s12">
                     <input placeholder="Search for todos" id="todo" ng-model="q" type="text" class="validate">
                 </div>
+            </div>
+            <div class="switch col s12 m6 offset-m3">
                 <br />
+                <div class="left-align col sm-4">
+                    <div class="btn blue" ng-click="switchOrder()" ng-model="orderUsing">{{orderUsing.label}}</div>
+                </div>
                 <div class="right-align">
                     <label class="filter-text">
                         To Do
@@ -17,9 +22,10 @@
                 <br />
                 <br />
             </div>
+        </div>
             <div class="col s12 m6 offset-m3">
-                <div ng-repeat="item in todos | filter:q ">
-                    <div class="card white" ng-if="item.completed == switch">
+                <div ng-repeat="item in todos | filter:q |  orderBy:'created':orderUsing.order ">
+                    <div class="card white no-transition" ng-if="item.completed == switch">
                         <div class="card-content black-text">
                             <span class="card-title" editable-text="item.todo" onbeforesave="updateTodoLabel(item._id, $data)">{{item.todo || "empty" }}</span>
                             <div class="time">
